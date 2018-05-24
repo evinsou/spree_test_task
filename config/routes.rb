@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'upload_data/upload_file'
+
+  post 'upload_data/import_data'
+
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to
   # Spree::ProductsController.
