@@ -1,0 +1,6 @@
+<h1>Upload file</h1>
+<p>Please select a file for uploading</p>
+<%= form_tag({action: :import_data}, multipart: true) do %>
+  <%= file_field_tag 'data_file' %>
+  <%= submit_tag 'Upload a file' %>
+<% end %>
