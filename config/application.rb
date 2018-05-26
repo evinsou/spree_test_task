@@ -29,6 +29,10 @@ module SpreeTestTask
       Dir.glob(File.join(File.dirname(__FILE__), "../app/overrides/*.rb")) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
+
+      Dir.glob(File.join(File.dirname(__FILE__), ["../app/services/**/*.rb"])) do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
     end
 
     # Initialize configuration defaults for originally generated Rails version.
@@ -40,5 +44,6 @@ module SpreeTestTask
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.active_job.queue_adapter = :sidekiq
   end
 end

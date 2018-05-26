@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'spree', '~> 3.4.0'
 gem 'spree_auth_devise', '~> 3.3'
 gem 'spree_gateway', '~> 3.3'
+gem 'sidekiq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,6 +42,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
   gem 'factory_bot_rails'
+  gem 'capybara'
+  gem 'rails-controller-testing'
 end
 
 group :development do
