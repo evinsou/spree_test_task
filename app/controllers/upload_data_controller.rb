@@ -4,8 +4,10 @@ class UploadDataController < ApplicationController
 
   def import_data
     uploaded_file = params[:data_file]
-    file = File.open(Rails.root.join('public', 'uploaded_files', uploaded_file.original_filename), 'wb') do |file|
+    file_location = Rails.root.join('public', 'uploaded_files', uploaded_file.original_filename)
+    File.open((file_location), 'wb') do |file|
       file.write(uploaded_file.read)
     end
+    ImportingDataJob.perform_later(file_location.to_s)
   end
 end
